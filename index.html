@@ -14,20 +14,20 @@
     }
 
     body {
-      background: #f9f9f9;
+      background: #f5f7fa;
       color: #333;
       line-height: 1.6;
     }
 
     header {
-      background: #1e40af;
+      background: linear-gradient(135deg, #1e40af, #3b82f6);
       color: #fff;
-      padding: 40px 20px;
+      padding: 50px 20px;
       text-align: center;
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin-bottom: 10px;
     }
 
@@ -44,21 +44,35 @@
 
     .domains {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
     }
 
     .domain-card {
       background: #fff;
       padding: 30px 20px;
       border-radius: 15px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
     }
 
     .domain-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.15);
+    }
+
+    .domain-logo {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 20px auto;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #fff;
     }
 
     .domain-card h2 {
@@ -73,11 +87,18 @@
       color: #555;
     }
 
+    .price {
+      font-weight: bold;
+      color: #10b981;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
     .contact {
       text-align: center;
       margin-top: 60px;
       padding: 40px 20px;
-      background: #1e3a8a;
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
       color: #fff;
       border-radius: 15px;
     }
@@ -114,6 +135,12 @@
       .domain-card h2 {
         font-size: 1.5rem;
       }
+
+      .domain-logo {
+        width: 90px;
+        height: 90px;
+        font-size: 1.1rem;
+      }
     }
   </style>
 </head>
@@ -121,22 +148,30 @@
 
   <header>
     <h1>Elijul Domains Portfolio</h1>
-    <p>Premium domains available for sale individually or as a bundle. Build your brand with a unique name.</p>
+    <p>Premium domains available individually or as a bundle. Build your brand with a unique name.</p>
   </header>
 
   <div class="container">
     <div class="domains">
       
       <div class="domain-card">
-        <h2>debentureai.com</h2>
+        <div class="domain-logo" style="background: linear-gradient(135deg, #0ea5e9, #3b82f6);">
+          DebentureAI
+        </div>
+        <h2><a href="https://debentureai.com" target="_blank" style="text-decoration:none;color:#1e40af;">DebentureAI.com</a></h2>
         <p>A sleek, professional domain ideal for AI, fintech, or investment platforms. Short, memorable, and premium.</p>
-        <p><strong>For Sale</strong></p>
+        <p class="price">BIN: $1450</p>
+        <p><strong>Serious buyers can send offers to <a href="mailto:elijulgroups@gmail.com" style="color:#fcd34d;">elijulgroups@gmail.com</a></strong></p>
       </div>
 
       <div class="domain-card">
-        <h2>liteescrow.com</h2>
+        <div class="domain-logo" style="background: linear-gradient(135deg, #f97316, #facc15);">
+          LiteEscrow
+        </div>
+        <h2><a href="https://liteescrow.com" target="_blank" style="text-decoration:none;color:#1e40af;">LiteEscrow.com</a></h2>
         <p>Perfect for fintech, escrow services, or secure online transactions. Brandable, easy to remember, and professional.</p>
-        <p><strong>For Sale</strong></p>
+        <p class="price">BIN: $1450</p>
+        <p><strong>Serious buyers can send offers to <a href="mailto:elijulgroups@gmail.com" style="color:#fcd34d;">elijulgroups@gmail.com</a></strong></p>
       </div>
 
     </div>
@@ -144,8 +179,8 @@
     <div class="contact">
       <h2>Contact to Buy</h2>
       <p>Email: <a href="mailto:elijulgroups@gmail.com">elijulgroups@gmail.com</a></p>
-      <p>Phone: <a href="tel:+25078866053">+250 788 660 53</a></p>
-      <p>We provide fast responses and secure transfer options for buyers. Domains can be purchased individually or as a bundle.</p>
+      <p>WhatsApp: <a href="https://wa.me/25078866053" target="_blank">+250 788 660 53</a></p>
+      <p>We provide fast responses and secure Namecheap push transfer options. Domains can be purchased individually or as a bundle.</p>
     </div>
   </div>
 
