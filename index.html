@@ -5,229 +5,227 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LiteEscrow | Simple, Secure Digital Transactions</title>
     
-    <meta name="description" content="Secure your digital assets with LiteEscrow. The lightweight, fast, and transparent escrow service for domains, services, and digital goods.">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
-
     <style>
         :root {
-            --primary: #00d2ff;
-            --secondary: #3a7bd5;
-            --dark-bg: #060910;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.08);
-            --text-main: #f8fafc;
-            --text-dim: #94a3b8;
+            --primary: #0f172a; /* Deep Navy */
+            --accent: #3b82f6; /* Trust Blue */
+            --accent-glow: rgba(59, 130, 246, 0.15);
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --white: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--dark-bg); 
-            color: var(--text-main); 
-            line-height: 1.6; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            color: var(--text-dark); 
+            background: var(--bg-light); 
+            line-height: 1.6;
             overflow-x: hidden;
+            padding-top: 80px;
         }
 
-        /* --- Global Centered Layout --- */
-        .container {
-            max-width: 1100px;
+        /* --- Layout Constraint: Centers all content & prevents right-side overflow --- */
+        .wrapper {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
-            text-align: center; /* Default centering */
+            padding: 0 20px;
+            width: 100%;
         }
 
         /* --- Header --- */
-        header {
-            padding: 30px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        header { 
+            position: fixed; top: 0; left: 0; width: 100%; 
+            background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border); z-index: 1000; 
+        }
+        
+        .nav { 
+            display: flex; align-items: center; justify-content: space-between; 
+            padding: 15px 0; 
         }
 
         .logo {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        nav a {
-            color: var(--text-dim);
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        nav a:hover { color: var(--primary); }
-
-        /* --- Hero Section --- */
-        .hero {
-            padding: 100px 0 60px;
-            background: radial-gradient(circle at top center, rgba(58, 123, 213, 0.15) 0%, transparent 70%);
-        }
-
-        .hero h1 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-dim);
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-
-        .btn {
-            padding: 16px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: 0.3s transform ease;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2);
-        }
-
-        .btn:hover { transform: translateY(-3px); }
-
-        /* --- Features Grid --- */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin-top: 60px;
-        }
-
-        .feature-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 40px;
-            border-radius: 24px;
-            text-align: left;
-            backdrop-filter: blur(10px);
-        }
-
-        .feature-card h3 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            margin-bottom: 12px;
+            display: flex; align-items: center; gap: 8px;
+            text-decoration: none; font-weight: 800; font-size: 22px;
             color: var(--primary);
         }
 
-        .feature-card p {
-            color: var(--text-dim);
-            font-size: 0.95rem;
+        .logo i { color: var(--accent); }
+
+        nav a { 
+            margin-left: 25px; text-decoration: none; color: var(--text-muted); 
+            font-size: 14px; font-weight: 600; transition: 0.2s;
+        }
+        nav a:hover { color: var(--accent); }
+
+        /* --- Hero --- */
+        .hero { 
+            padding: 100px 0 60px; text-align: center; 
+        }
+        
+        .hero h1 { 
+            font-size: clamp(32px, 5vw, 52px); font-weight: 800; line-height: 1.1; 
+            margin-bottom: 24px; color: var(--primary); letter-spacing: -1.5px; 
+        }
+        
+        .hero h1 span { color: var(--accent); }
+
+        .hero p { 
+            font-size: 19px; color: var(--text-muted); margin-bottom: 40px; 
+            max-width: 650px; margin-inline: auto; 
         }
 
-        /* --- Trust Bar --- */
-        .trust-section {
-            padding: 80px 0;
-            border-top: 1px solid var(--border);
-            margin-top: 80px;
+        .cta-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        
+        .btn { 
+            padding: 14px 28px; border-radius: 10px; text-decoration: none; 
+            font-weight: 700; font-size: 15px; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px;
+        }
+        
+        .btn-primary { background: var(--accent); color: white; }
+        .btn-primary:hover { background: #2563eb; transform: translateY(-2px); box-shadow: 0 8px 20px var(--accent-glow); }
+        
+        .btn-outline { background: var(--white); color: var(--primary); border: 1px solid var(--border); }
+        .btn-outline:hover { background: var(--bg-light); border-color: var(--accent); }
+
+        /* --- Feature Grid --- */
+        .section { padding: 80px 0; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 32px; font-weight: 800; color: var(--primary); }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        
+        .card { 
+            background: white; padding: 35px; border-radius: 20px; 
+            border: 1px solid var(--border); transition: 0.3s; 
+            text-align: left;
+        }
+        
+        .card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        
+        .card i { 
+            font-size: 20px; color: var(--accent); background: var(--accent-light); 
+            width: 45px; height: 45px; display: flex; align-items: center; 
+            justify-content: center; border-radius: 10px; margin-bottom: 20px; 
         }
 
-        .trust-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 40px;
-            opacity: 0.5;
-        }
+        .card h3 { font-size: 19px; margin-bottom: 10px; color: var(--primary); }
+        .card p { font-size: 15px; color: var(--text-muted); }
 
-        /* --- CTA Section --- */
-        .cta-box {
-            background: linear-gradient(135deg, rgba(0, 210, 255, 0.1), rgba(58, 123, 213, 0.1));
-            padding: 60px;
-            border-radius: 32px;
-            border: 1px solid var(--primary);
-            margin: 80px 0;
+        /* --- For Sale Banner --- */
+        .sale-banner {
+            background: var(--primary); color: white; padding: 60px 40px;
+            border-radius: 24px; text-align: center; margin-top: 40px;
         }
+        .sale-banner h2 { font-size: 28px; margin-bottom: 15px; }
+        .sale-banner p { color: #94a3b8; margin-bottom: 30px; font-size: 17px; }
 
         /* --- Footer --- */
-        footer {
-            padding: 40px 0;
-            border-top: 1px solid var(--border);
-            color: var(--text-dim);
-            font-size: 0.85rem;
+        footer { 
+            background: #f1f5f9; color: var(--text-muted); padding: 60px 0 30px; 
+            margin-top: 80px; border-top: 1px solid var(--border);
+        }
+        
+        .footer-content {
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
         }
 
-        /* Responsive Fixes */
-        @media (max-width: 768px) {
-            header { flex-direction: column; gap: 20px; }
-            nav { margin-left: 0; }
-            nav a { margin: 0 10px; }
+        .copyright { font-size: 13px; text-align: center; margin-top: 40px; opacity: 0.8; }
+
+        @media(max-width: 768px){
+            .hide-mobile { display: none; }
+            .hero { padding: 60px 0; }
+            .footer-content { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <div class="logo">LiteEscrow</div>
-            <nav>
-                <a href="#features">Features</a>
-                <a href="#how-it-works">How it Works</a>
-                <a href="mailto:sales@liteescrow.com">Contact</a>
+<header>
+    <div class="wrapper">
+        <div class="nav">
+            <a href="#" class="logo">
+                <i class="fa fa-shield-halved"></i>
+                <span>LiteEscrow</span>
+            </a>
+            <nav class="hide-mobile">
+                <a href="#benefits">Benefits</a>
+                <a href="#how">How it Works</a>
+                <a href="mailto:info@zenithaid.com">Buy Domain</a>
             </nav>
-        </header>
-
-        <section class="hero">
-            <h1>Transact with <br><span>Absolute Clarity.</span></h1>
-            <p>The lightweight escrow solution for modern creators, developers, and domain investors. Fast, secure, and built for the digital economy.</p>
-            <div class="hero-btns">
-                <a href="#" class="btn btn-primary">Start Secure Transaction</a>
-            </div>
-        </section>
-
-        <section class="features" id="features">
-            <div class="feature-card">
-                <h3>01. Ultra-Low Fees</h3>
-                <p>We believe security shouldn't cost a fortune. LiteEscrow offers industry-leading low rates for digital goods.</p>
-            </div>
-            <div class="feature-card">
-                <h3>02. Instant Verification</h3>
-                <p>Automated checks for domains and digital assets to ensure what you see is what you get.</p>
-            </div>
-            <div class="feature-card">
-                <h3>03. Global Reach</h3>
-                <p>Supporting multiple currencies and crypto assets to facilitate cross-border deals seamlessly.</p>
-            </div>
-        </section>
-
-        <div class="cta-box">
-            <h2>The Domain is For Sale.</h2>
-            <p style="margin-bottom: 25px;">Acquire <strong>LiteEscrow.com</strong> today and build the future of peer-to-peer trust.</p>
-            <a href="https://www.atom.com" class="btn btn-primary">Purchase LiteEscrow.com</a>
+            <a href="https://www.atom.com" class="btn btn-primary" style="padding: 10px 18px; font-size: 13px;">Acquire Now</a>
         </div>
-
-        <section class="trust-section">
-            <div class="trust-grid">
-                <span>SECURE PAYMENTS</span>
-                <span>•</span>
-                <span>DOMAIN TRANSFERS</span>
-                <span>•</span>
-                <span>SERVICE CONTRACTS</span>
-                <span>•</span>
-                <span>ASSET PROTECTION</span>
-            </div>
-        </section>
-
-        <footer>
-            <p>&copy; 2026 LiteEscrow. A premium digital asset managed by EliJul Group.</p>
-        </footer>
     </div>
+</header>
+
+<div class="wrapper">
+    <section class="hero">
+        <h1>Transact with <span>Absolute Clarity.</span></h1>
+        <p>A friction-free escrow solution for digital assets, domain names, and remote services. LiteEscrow makes trust simple.</p>
+        <div class="cta-group">
+            <a href="mailto:info@zenithaid.com" class="btn btn-primary">Inquire About LiteEscrow.com</a>
+            <a href="#benefits" class="btn btn-outline">Learn More <i class="fa fa-chevron-down"></i></a>
+        </div>
+    </section>
+
+    <section id="benefits" class="section">
+        <div class="section-header">
+            <h2>Why LiteEscrow?</h2>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <i class="fa fa-bolt"></i>
+                <h3>Lightning Fast</h3>
+                <p>Designed to reduce the friction of traditional escrow, moving your deals from "Hold" to "Complete" in record time.</p>
+            </div>
+            <div class="card">
+                <i class="fa fa-lock"></i>
+                <h3>Secure by Design</h3>
+                <p>End-to-end protection for both buyers and sellers, ensuring assets are verified before funds are released.</p>
+            </div>
+            <div class="card">
+                <i class="fa fa-hand-holding-dollar"></i>
+                <h3>Lower Overheads</h3>
+                <p>A "Lite" approach means smaller fees without compromising on the heavy-duty security your assets deserve.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="sale-banner">
+        <h2>LiteEscrow.com is for sale</h2>
+        <p>Secure this category-defining brand for your next FinTech or Escrow venture. Brokerage by ZenithAid.</p>
+        <div class="cta-group">
+            <a href="https://www.atom.com" class="btn btn-primary" style="background: white; color: var(--primary);">Secure on ATOM.com</a>
+            <a href="mailto:info@zenithaid.com" class="btn btn-outline" style="background: transparent; color: white; border-color: #334155;">Contact Broker</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="wrapper">
+        <div class="footer-content">
+            <a href="#" class="logo" style="color: var(--primary);">
+                <i class="fa fa-shield-halved"></i>
+                <span>LiteEscrow</span>
+            </a>
+            <p>Managed by ZenithAid Brokerage • Elijul Group</p>
+            <div class="socials" style="display: flex; gap: 15px;">
+                <a href="#" style="color: var(--text-muted);"><i class="fab fa-twitter"></i></a>
+                <a href="#" style="color: var(--text-muted);"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 LiteEscrow. All rights reserved. Professional brokerage provided by ZenithAid.
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
